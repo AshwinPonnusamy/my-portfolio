@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="flex items-center justify-center relative overflow-hidden py-20"
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
@@ -63,32 +63,6 @@ const Hero = () => {
               Contact Me
             </a>
           </motion.div>
-
-          {/* <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex items-center gap-8 pt-8 border-t border-white/10"
-          >
-            <div>
-              <h3 className="text-3xl font-bold text-white">1.5+</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">
-                Years Exp.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-white">2+</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">
-                Projects
-              </p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-white">20+</h3>
-              <p className="text-gray-500 text-sm uppercase tracking-wider">
-                Clients
-              </p>
-            </div>
-          </motion.div> */}
         </div>
 
         <motion.div

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import profile from '../assets/ashwin.jpg'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +20,8 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-      { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Work", path: "/work" },
     { name: "Contact", path: "/contact" },
@@ -34,12 +34,17 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link
-          path="/home"
-          className="text-2xl font-bold font-display text-white tracking-tighter"
+        <a
+          href="/"
+          className="flex items-center gap-2 text-2xl font-bold font-display text-white tracking-tighter group"
         >
-          Ashwin<span className="text-accent">.</span>
-        </Link>
+          <div className="md:hidden rounded-full bg-white/10 group-hover:bg-accent/20 transition-colors">
+            <img src={profile} alt="" className="object-cover w-8 h-8 rounded-full" />
+          </div>
+          <span>
+            Ashwin<span className="text-accent">.</span>
+          </span>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
@@ -64,16 +69,16 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
+            className="text-white focus:outline-none p-2 hover:bg-white/10 rounded-full transition-colors"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full glass border-t border-white/10 p-6 flex flex-col space-y-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full glass border-t border-white/10 p-6 flex flex-col space-y-4 animate-fade-in shadow-2xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -85,8 +90,9 @@ const Navbar = () => {
             </a>
           ))}
           <Link
-            to="/contact"
-            className="px-6 py-2 bg-accent hover:bg-blue-600 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+            href="/contact"
+            className="px-6 py-3 bg-accent text-center text-white rounded-full font-medium shadow-lg"
+            onClick={() => setIsOpen(false)}
           >
             Let's Talk
           </Link>

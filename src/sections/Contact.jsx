@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
     return (
@@ -70,15 +71,15 @@ const Contact = () => {
                         <div className="pt-8 border-t border-white/10">
                             <h4 className="text-white font-medium mb-4">Follow Me</h4>
                             <div className="flex gap-4">
-                                <a href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all">
+                                <Link href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-black transition-all">
                                     <Github size={20} />
-                                </a>
-                                <a href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all">
+                                </Link>
+                                <Link href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all">
                                     <Linkedin size={20} />
-                                </a>
-                                <a href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all">
-                                    <Twitter size={20} />
-                                </a>
+                                </Link>
+                                <Link href="#" className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] transition-all">
+                                    <Instagram size={20} />
+                                </Link>
                             </div>
                         </div>
                     </motion.div>
