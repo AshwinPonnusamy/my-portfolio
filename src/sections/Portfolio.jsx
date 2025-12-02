@@ -63,7 +63,7 @@ const Portfolio = () => {
         : projects.filter(project => project.category === filter);
 
     return (
-        <section id="portfolio" className="py-20 bg-secondary/30">
+        <section className="py-20 bg-secondary/30">
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
