@@ -20,11 +20,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-      { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Work", path: "/work" },
-    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/#about" },
+    { name: "Services", path: "/#services" },
+    { name: "Work", path: "/#work" },
+    { name: "Contact", path: "/#contact" },
   ];
 
   return (
@@ -35,7 +34,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link
-          path="/home"
+          to="/#home"
           className="text-2xl font-bold font-display text-white tracking-tighter"
         >
           Ashwin<span className="text-accent">.</span>
@@ -47,13 +46,14 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="text-gray-300 hover:text-accent transition-colors text-sm font-medium uppercase tracking-wider"
+              className="group text-gray-200 hover:text-accent transition-colors text-sm font-medium uppercase tracking-wider"
             >
               {link.name}
+              <span className="block mx-auto max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-accent"></span>
             </Link>
           ))}
           <Link
-            to="/contact"
+            to="/#contact"
             className="px-6 py-2 bg-accent hover:bg-blue-600 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           >
             Let's Talk
@@ -75,17 +75,17 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full glass border-t border-white/10 p-6 flex flex-col space-y-4 animate-fade-in">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.path}
+              to={link.path}
               className="text-gray-300 hover:text-accent text-lg font-medium"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <Link
-            to="/contact"
+            to="/#contact"
             className="px-6 py-2 bg-accent hover:bg-blue-600 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           >
             Let's Talk
