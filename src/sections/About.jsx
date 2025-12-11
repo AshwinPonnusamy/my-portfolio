@@ -4,28 +4,29 @@ import { Code, Palette, Terminal, Cpu } from 'lucide-react';
 
 const About = () => {
     const skills = [
-        "React / Next.js", "TypeScript", "Tailwind CSS", "Node.js", "UI/UX Design", "Framer Motion"
+        "React / Angular.js", "TypeScript", "Tailwind CSS", "Bootstrap", "UI/UX Design", "Framer Motion", "Figma", "Epub",     
     ];
 
     const experience = [
         {
-            year: "2023 - Present",
-            role: "Senior Frontend Developer",
-            company: "TechCorp Inc.",
+            year: "2024 - Present",
+            role: "Junior Front-end Developer",
+            company: "Coherent pixels system.",
             description: "Leading the frontend team in building scalable web applications."
         },
         {
-            year: "2021 - 2023",
-            role: "UI/UX Designer & Dev",
-            company: "Creative Studio",
-            description: "Designed and developed award-winning websites for various clients."
+            year: "2023 - 2024",
+            role: "Epub developer",
+            company: "Bluez Infomatic Solution",
+            description: "Converted and formatted digital books for ePub, Mobi, and PDF platforms with proper layout, styling, images, and accessibility. Ensured compatibility across Kindle, Apple Books, Kobo, and other e-reading devices."
         },
         {
-            year: "2019 - 2021",
-            role: "Junior Web Developer",
-            company: "StartUp Hub",
-            description: "Collaborated with cross-functional teams to deliver high-quality code."
-        }
+            year: "2022 - 2023",
+            role: "Web Developer Intern",
+            company: "Appin Technology Lab",
+            description: "Completed a internship focused on designing and developing responsive web pages using HTML, CSS, Bootstrap, and JavaScript. Assisted in backend integration, debugging, and teamwork to deliver production-ready features."
+          }
+          
     ];
 
     return (
