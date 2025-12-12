@@ -12,7 +12,7 @@ const About = () => {
             year: "2024 - Present",
             role: "Junior Front-end Developer",
             company: "Coherent pixels system.",
-            description: "Leading the frontend team in building scalable web applications."
+            description: "Developing responsive, high-performance web applications using React, JavaScript, HTML, CSS, and Tailwind. Building reusable components, improving performance, and enhancing user experience across devices."
         },
         {
             year: "2023 - 2024",

@@ -20,6 +20,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: "Home", path: "/#home" },
     { name: "About", path: "/#about" },
     { name: "Services", path: "/#services" },
     { name: "Work", path: "/#work" },
@@ -35,14 +36,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link
           to="/#home"
-          className="text-2xl font-bold font-display text-white tracking-tighter"
+          className="flex items-center text-2xl font-bold font-display text-white tracking-tighter"
         >
-          <div className="md:hidden rounded-full bg-white/10 group-hover:bg-accent/20 transition-colors">
-            <img src={profile} alt="" className="object-cover w-8 h-8 rounded-full" />
+          <div className="md:hidden w-7 h-7 rounded-full mt-1">
+            <img src={profile} alt="" className="object-cover w-6 h-6 rounded-full" />
           </div>
-          <span>
+          <p>
             Ashwin<span className="text-accent">.</span>
-          </span>
+          </p>
         </Link>
 
         {/* Desktop Menu */}
@@ -83,10 +84,11 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className="text-gray-300 hover:text-accent text-lg font-medium"
+              className="group text-gray-300 hover:text-accent text-lg font-medium"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
+              <span className="block mx-auto max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-accent"></span>
             </Link>
           ))}
           <Link
