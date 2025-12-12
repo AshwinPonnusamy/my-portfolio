@@ -1,6 +1,9 @@
 import React from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
+import ashwinImg from '../assets/ashwin.jpg';
+import reactIcon from '../assets/icons/reactIcon.svg';
+import angularIcon from '../assets/icons/angularIcon.svg';
 
 const Hero = () => {
   return (
@@ -80,7 +83,7 @@ const Hero = () => {
               <div className="relative w-full h-full bg-linear-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                 <div className="text-9xl font-bold text-white/5 select-none ">
                   <img
-                    src="/src/assets/ashwin.jpg"
+                    src={ashwinImg}
                     alt="profile-image"
                     className="object-cover opacity-70"
                   />
@@ -98,8 +101,8 @@ const Hero = () => {
                 <div className="absolute bottom-10 left-10 p-4 glass rounded-2xl animate-bounce duration-4000">
                   <div className="w-8 h-8 rounded-full flex items-center justify-center">
                     <img
-                      src="/src/assets/icons/angularIcon.svg"
-                      alt="angular-image"
+                      src={angularIcon}
+                      alt="angular-icon"
                       className="object-cover"
                     />
                   </div>
