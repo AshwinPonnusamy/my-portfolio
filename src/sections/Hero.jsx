@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import ashwinImg from '../assets/ashwin.jpg';
 import reactIcon from '../assets/icons/reactIcon.svg';
@@ -92,7 +92,7 @@ const Hero = () => {
                 <div className="absolute top-10 right-10 p-4 glass rounded-2xl animate-bounce duration-3000">
                   <div className="w-8 h-8 rounded-full flex items-center justify-center">
                     <img
-                      src="/src/assets/icons/reactIcon.svg"
+                      src={reactIcon}
                       alt="angular-image"
                       className="object-cover"
                     />
