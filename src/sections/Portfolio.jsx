@@ -2,57 +2,74 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
+// Project Images
+import omniStoreImg from "../assets/projects/omni-store.png";
+import titanMuscleImg from "../assets/projects/titan-muscle.png";
+import voteVisionImg from "../assets/projects/vote-vision.png";
+
 const Portfolio = () => {
   const [filter, setFilter] = useState("All");
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Omni Store Online",
       category: "Web App",
-      image: "bg-blue-500", // Placeholder color
-      description: "A full-featured online store with payment integration.",
-      tags: ["React", "Node.js", "Stripe"],
+      image: omniStoreImg,
+      description: "A full-featured e-commerce platform with a premium shopping experience.",
+      tags: ["React", "Tailwind CSS", "Netlify"],
+      link: "https://omnistoreonline.netlify.app/",
+      github: "https://github.com/AshwinPonnusamy/Omnistore_Online",
     },
     {
       id: 2,
-      title: "Finance Dashboard",
-      category: "Design",
-      image: "bg-purple-500",
-      description: "Modern UI for tracking investments and expenses.",
-      tags: ["Figma", "UI/UX"],
+      title: "Titan Muscle Club",
+      category: "Web App",
+      image: titanMuscleImg,
+      description: "Elite fitness platform featuring training programs and world-class facility showcases.",
+      tags: ["React", "Framer Motion", "Tailwind"],
+      link: "https://titanmuscleclub.netlify.app/",
+      github: "https://github.com/AshwinPonnusamy/Titan-Muscle-Club",
     },
     {
       id: 3,
-      title: "Social Media App",
-      category: "Mobile App",
-      image: "bg-pink-500",
-      description: "Connect with friends and share moments instantly.",
-      tags: ["React Native", "Firebase"],
+      title: "TN Vote Vision",
+      category: "Web App",
+      image: voteVisionImg,
+      description: "Real-time election results dashboard with live data visualization and deep insights.",
+      tags: ["React", "Data Visualization", "SEO"],
+      link: "https://tnvotevision.netlify.app/",
+      github: "https://github.com/AshwinPonnusamy/TN_vote_vision",
     },
     {
       id: 4,
       title: "AI Content Generator",
       category: "Web App",
-      image: "bg-indigo-500",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
       description: "Generate blog posts and social media captions with AI.",
       tags: ["OpenAI API", "Next.js"],
+      link: "#",
+      github: "#",
     },
     {
       id: 5,
-      title: "Travel Booking Site",
-      category: "Web App",
-      image: "bg-teal-500",
-      description: "Book flights and hotels with ease.",
-      tags: ["Vue.js", "Laravel"],
+      title: "Finance Dashboard",
+      category: "Design",
+      image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800",
+      description: "Modern UI for tracking investments and expenses.",
+      tags: ["Figma", "UI/UX"],
+      link: "#",
+      github: "#",
     },
     {
       id: 6,
-      title: "Fitness Tracker",
-      category: "Mobile App",
-      image: "bg-orange-500",
-      description: "Track your workouts and monitor progress.",
-      tags: ["Flutter", "Dart"],
+      title: "Travel Booking Site",
+      category: "Web App",
+      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800",
+      description: "Book flights and hotels with ease.",
+      tags: ["Vue.js", "Laravel"],
+      link: "#",
+      github: "#",
     },
   ];
 
@@ -111,20 +128,29 @@ const Portfolio = () => {
                 key={project.id}
                 className="group relative rounded-2xl overflow-hidden bg-primary border border-white/10"
               >
-                {/* Image Placeholder */}
-                <div
-                  className={`h-64 w-full ${project.image} relative overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
+                {/* Image Container */}
+                <div className="h-64 w-full relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
                     <a
-                      href="#"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-3 bg-white text-primary rounded-full hover:scale-110 transition-transform"
+                      title="Live Preview"
                     >
                       <ExternalLink size={20} />
                     </a>
                     <a
-                      href="#"
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-3 bg-white text-primary rounded-full hover:scale-110 transition-transform"
+                      title="View Code"
                     >
                       <Github size={20} />
                     </a>
@@ -138,7 +164,7 @@ const Portfolio = () => {
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -162,3 +188,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
