@@ -13,7 +13,7 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "Omni Store Online",
+      title: "Omni Store Online (Developing....)",
       category: "Web App",
       image: omniStoreImg,
       description: "A full-featured e-commerce platform with a premium shopping experience.",
@@ -23,7 +23,7 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "Titan Muscle Club",
+      title: "Titan Muscle Club (Developing....)",
       category: "Web App",
       image: titanMuscleImg,
       description: "Elite fitness platform featuring training programs and world-class facility showcases.",
@@ -33,44 +33,14 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "TN Vote Vision",
+      title: "TN Vote Vision (Developing....)",
       category: "Web App",
       image: voteVisionImg,
       description: "Real-time election results dashboard with live data visualization and deep insights.",
       tags: ["React", "Data Visualization", "SEO"],
       link: "https://tnvotevision.netlify.app/",
       github: "https://github.com/AshwinPonnusamy/TN_vote_vision",
-    },
-    {
-      id: 4,
-      title: "AI Content Generator",
-      category: "Web App",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-      description: "Generate blog posts and social media captions with AI.",
-      tags: ["OpenAI API", "Next.js"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 5,
-      title: "Finance Dashboard",
-      category: "Design",
-      image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800",
-      description: "Modern UI for tracking investments and expenses.",
-      tags: ["Figma", "UI/UX"],
-      link: "#",
-      github: "#",
-    },
-    {
-      id: 6,
-      title: "Travel Booking Site",
-      category: "Web App",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800",
-      description: "Book flights and hotels with ease.",
-      tags: ["Vue.js", "Laravel"],
-      link: "#",
-      github: "#",
-    },
+    }
   ];
 
   const categories = ["All", "Web App", "Mobile App", "Design"];

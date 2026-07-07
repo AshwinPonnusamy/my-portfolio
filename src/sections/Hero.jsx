@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import ashwinImg from "../assets/ashwin.jpg";
 import reactIcon from "../assets/icons/reactIcon.svg";
@@ -25,7 +25,7 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <span className="px-4 py-2 rounded-full glass text-accent text-sm font-medium tracking-wider uppercase mb-6 inline-block">
-              Available for Freelance
+              Open to work
             </span>
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Building <span className="text-gradient-accent">Digital</span>{" "}
@@ -51,7 +51,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <a
-              href="#portfolio"
+              href="#work"
               className="px-8 py-4 bg-accent hover:bg-blue-600 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center gap-2 group"
             >
               View My Work
@@ -61,10 +61,17 @@ const Hero = () => {
               />
             </a>
             <a
-              href="#contact"
-              className="px-8 py-4 glass hover:bg-white/10 text-white rounded-full font-medium transition-all flex items-center justify-center gap-2"
+              href="/Ashwin_Resume.pdf"
+              download="Ashwin_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 glass hover:bg-white/10 text-white rounded-full font-medium transition-all flex items-center justify-center gap-2 group"
             >
-              Contact Me
+              Download CV
+              <Download
+                size={20}
+                className="group-hover:translate-y-0.5 transition-transform"
+              />
             </a>
           </motion.div>
         </div>

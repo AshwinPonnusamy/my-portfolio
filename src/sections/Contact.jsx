@@ -5,8 +5,7 @@ import {
   Phone,
   Send,
   Github,
-  Linkedin,
-  Instagram,
+  Linkedin
 } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -142,13 +141,6 @@ const Contact = () => {
                   className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent transition-all"
                 >
                   <Linkedin size={20} />
-                </a>
-                <a
-                  href="https://www.instagram.com/achu_ashwin_5/"
-                  target="_blank"
-                  className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] transition-all"
-                >
-                  <Instagram size={20} />
                 </a>
               </div>
             </div>

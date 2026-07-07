@@ -22,10 +22,22 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/#home" },
     { name: "About", path: "/#about" },
-    { name: "Services", path: "/#services" },
+    // { name: "Services", path: "/#services" },
     { name: "Work", path: "/#work" },
     { name: "Contact", path: "/#contact" },
   ];
+
+  const handleNavLinkClick = (e, path) => {
+    if (path.startsWith("/#")) {
+      const targetId = path.substring(2);
+      const element = document.getElementById(targetId);
+      if (element) {
+        e.preventDefault();
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, null, path);
+      }
+    }
+  };
 
   return (
     <nav
@@ -36,6 +48,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Link
           to="/#home"
+          onClick={(e) => handleNavLinkClick(e, "/#home")}
           className="flex items-center text-2xl font-bold font-display text-white tracking-tighter"
         >
           <div className="md:hidden w-7 h-7 rounded-full mt-1">
@@ -52,6 +65,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
+              onClick={(e) => handleNavLinkClick(e, link.path)}
               className="group text-gray-200 hover:text-accent transition-colors text-sm font-medium uppercase tracking-wider"
             >
               {link.name}
@@ -60,6 +74,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/#contact"
+            onClick={(e) => handleNavLinkClick(e, "/#contact")}
             className="px-6 py-2 bg-accent hover:bg-blue-600 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
           >
             Let's Talk
@@ -84,8 +99,11 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
+              onClick={(e) => {
+                handleNavLinkClick(e, link.path);
+                setIsOpen(false);
+              }}
               className="group text-gray-300 hover:text-accent text-lg font-medium"
-              onClick={() => setIsOpen(false)}
             >
               {link.name}
               <span className="block mx-auto max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-accent"></span>
@@ -94,7 +112,10 @@ const Navbar = () => {
           <Link
             to="/#contact"
             className="px-6 py-3 bg-accent text-center text-white rounded-full font-medium shadow-lg"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => {
+              handleNavLinkClick(e, "/#contact");
+              setIsOpen(false);
+            }}
           >
             Let's Talk
           </Link>
