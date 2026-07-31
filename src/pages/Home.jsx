@@ -24,7 +24,7 @@ export const Home = () => {
       <Hero />
       <Achievements />
       <About />
-      <Services />
+      {/* <Services /> */}
       <Portfolio />
       {/* <Testimonials /> */}
       <Contact />
