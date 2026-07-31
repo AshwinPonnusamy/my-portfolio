@@ -1,49 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0f172a;
-  --color-secondary: #1e293b;
-  --color-accent: #38bdf8;
-  --color-accent-glow: #38bdf880;
-  
-  --image-gradient-1: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --image-gradient-2: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
-  --image-gradient-3: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
-  --image-gradient-4: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-  --image-gradient-5: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
-  --image-gradient-6: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --color-paper: #FAF5EB;
+  --color-paper-dark: #F0E7D5;
+  --color-ink: #2C2724;
+  --color-ink-muted: #685E58;
+  --color-accent-deep: #B84A39;
+  --color-accent-green: #4A6B53;
+  --color-accent-gold: #DCA842;
+  --color-accent-light: #F2E6D9;
 
-  --font-display: 'Outfit', sans-serif;
-  --font-sans: 'Inter', sans-serif;
+  --color-primary: #FAF5EB;
+  --color-secondary: #F0E7D5;
+  --color-accent: #B84A39;
+  --color-accent-glow: #B84A3920;
+
+  --font-display: 'DM Serif Display', serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
 /* Custom Utilities */
 @utility glass {
-  background-color: rgb(255 255 255 / 0.05);
+  background-color: rgb(44 39 36 / 0.03);
   backdrop-filter: blur(16px);
 }
 
 @utility text-gradient {
   background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #ffffff, #9ca3af);
+  background-image: linear-gradient(to right, #2C2724, #685E58);
 }
 
 @utility text-gradient-accent {
   background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, var(--color-accent), var(--color-accent-glow));
+  background-image: linear-gradient(to right, var(--color-accent-deep), #9c3323);
+}
+
+@utility bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+@utility shadow-retro {
+  box-shadow: 4px 4px 0px 0px var(--color-ink);
+}
+
+@utility shadow-retro-lg {
+  box-shadow: 8px 8px 0px 0px var(--color-ink);
+}
+
+@utility shadow-retro-accent {
+  box-shadow: 4px 4px 0px 0px var(--color-accent-deep);
+}
+
+@utility shadow-retro-green {
+  box-shadow: 4px 4px 0px 0px var(--color-accent-green);
+}
+
+@utility border-double-custom {
+  border-style: double;
+  border-width: 4px;
 }
 
 /* Base Styles */
 body {
-  background-color: var(--color-primary);
-  color: #f8fafc;
-  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  color: var(--color-ink);
 }
+
+/* Custom Scrollbar for Retro Feel */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper-dark);
+  border-left: 2px solid var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-ink-muted);
+  border: 3px solid var(--color-paper-dark);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-ink);
+}
+
+
+

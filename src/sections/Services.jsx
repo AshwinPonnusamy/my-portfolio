@@ -49,41 +49,50 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-primary relative">
+    <section id="services" className="py-24 bg-accent-green relative border-b-2 border-ink bg-grain">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-gradient-accent">Services</span>
+          <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-accent-gold mb-3 block">
+            03 / SERVICES
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-paper uppercase tracking-tight mb-4">
+            My Specialty <span className="italic font-serif font-normal text-accent-gold lowercase">— services</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <div className="h-[2px] bg-paper/20 max-w-xl mx-auto my-6"></div>
+          <p className="text-paper/85 max-w-2xl mx-auto font-serif italic text-base sm:text-lg">
             I offer a wide range of services to help you build your digital
             presence and achieve your business goals.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 rounded-2xl bg-secondary/50 border border-white/5 hover:border-accent/50 hover:bg-secondary transition-all group hover:-translate-y-2"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="p-8 border-2 border-ink bg-paper text-ink shadow-[5px_5px_0px_0px_rgba(220,168,66,1)] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-300 relative group overflow-hidden"
             >
-              <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform border border-white/5 shadow-lg">
+              {/* Apocathery stamp indicator */}
+              <span className="absolute bottom-3 right-5 font-mono text-[9px] text-ink/20 font-bold tracking-widest pointer-events-none select-none">
+                [SERVE-0{index + 1}]
+              </span>
+
+              <div className="w-14 h-14 bg-paper-dark border-2 border-ink flex items-center justify-center text-accent-deep mb-6 group-hover:rotate-12 transition-transform duration-300">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+              <h3 className="text-lg font-bold font-display text-ink uppercase tracking-tight mb-3 group-hover:text-accent-deep transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-ink-muted text-sm font-serif leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

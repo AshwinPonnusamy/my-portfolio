@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Hero from "../sections/Hero";
 import Contact from "../sections/Contact";
 import Portfolio from "../sections/Portfolio";
