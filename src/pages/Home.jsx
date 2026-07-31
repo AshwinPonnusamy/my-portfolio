@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Hero from "../sections/Hero";
 import Contact from "../sections/Contact";
 import Portfolio from "../sections/Portfolio";
@@ -24,7 +24,7 @@ export const Home = () => {
       <Hero />
       <Achievements />
       <About />
-      {/* <Services /> */}
+      <Services />
       <Portfolio />
       {/* <Testimonials /> */}
       <Contact />

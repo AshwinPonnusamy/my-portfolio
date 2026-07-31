@@ -13,34 +13,37 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "Omni Store Online (Developing....)",
+      title: "Omni Store Online",
       category: "Web App",
       image: omniStoreImg,
-      description: "A full-featured e-commerce platform with a premium shopping experience.",
+      description:
+        "A full-featured e-commerce platform with a premium shopping experience.",
       tags: ["React", "Tailwind CSS", "Netlify"],
       link: "https://omnistoreonline.netlify.app/",
       github: "https://github.com/AshwinPonnusamy/Omnistore_Online",
     },
     {
       id: 2,
-      title: "Titan Muscle Club (Developing....)",
+      title: "Titan Muscle Club",
       category: "Web App",
       image: titanMuscleImg,
-      description: "Elite fitness platform featuring training programs and world-class facility showcases.",
+      description:
+        "Elite fitness platform featuring training programs and world-class facility showcases.",
       tags: ["React", "Framer Motion", "Tailwind"],
       link: "https://titanmuscleclub.netlify.app/",
       github: "https://github.com/AshwinPonnusamy/Titan-Muscle-Club",
     },
     {
       id: 3,
-      title: "TN Vote Vision (Developing....)",
+      title: "TN Vote Vision",
       category: "Web App",
       image: voteVisionImg,
-      description: "Real-time election results dashboard with live data visualization and deep insights.",
+      description:
+        "Real-time election results dashboard with live data visualization and deep insights.",
       tags: ["React", "Data Visualization", "SEO"],
       link: "https://tnvotevision.netlify.app/",
       github: "https://github.com/AshwinPonnusamy/TN_vote_vision",
-    }
+    },
   ];
 
   const categories = ["All", "Web App", "Mobile App", "Design"];
@@ -50,112 +53,152 @@ const Portfolio = () => {
       ? projects
       : projects.filter((project) => project.category === filter);
 
+  // Helper for card grid sizes
+  const getLayoutClasses = () => {
+    return "col-span-12 md:col-span-6 lg:col-span-4";
+  };
+
   return (
-    <section id="work" className="py-20 bg-secondary/30">
+    <section id="work" className="py-24 bg-paper border-b-2 border-ink relative bg-grain">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Selected <span className="text-gradient-accent">Works</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-            A collection of projects that showcase my skills and passion for
-            building digital products.
-          </p>
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-accent-deep mb-3 block">
+              04 / WORK
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold font-display uppercase tracking-tight text-ink">
+              Selected Works<span className="text-accent-deep">.</span>
+            </h2>
+            <div className="h-[3px] bg-ink mt-6 w-56"></div>
+            <div className="h-px bg-ink mt-1 w-56"></div>
+          </motion.div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === cat
-                    ? "bg-accent text-white shadow-lg shadow-blue-500/25"
-                    : "bg-primary border border-white/10 text-gray-400 hover:text-white hover:border-white/30"
-                }`}
-              >
-                {cat}
-              </button>
+          {/* Typography Filter Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t-2 border-b-2 border-ink border-dashed py-4 w-full md:w-auto"
+          >
+            {categories.map((cat, idx) => (
+              <React.Fragment key={cat}>
+                <button
+                  onClick={() => setFilter(cat)}
+                  className={`text-xs font-mono font-bold uppercase tracking-widest transition-colors relative pb-1 ${
+                    filter === cat
+                      ? "text-accent-deep border-b-2 border-accent-deep font-black"
+                      : "text-ink-muted hover:text-ink"
+                  }`}
+                >
+                  {cat}
+                </button>
+                {idx < categories.length - 1 && (
+                  <span className="text-ink/20 font-mono text-xs select-none">/</span>
+                )}
+              </React.Fragment>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-12 gap-8 lg:gap-8 items-start">
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden bg-primary border border-white/10"
+                className={`group ${getLayoutClasses()}`}
               >
-                {/* Image Container */}
-                <div className="h-64 w-full relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white text-primary rounded-full hover:scale-110 transition-transform"
-                      title="Live Preview"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white text-primary rounded-full hover:scale-110 transition-transform"
-                      title="View Code"
-                    >
-                      <Github size={20} />
-                    </a>
+                {/* Framed Print Card styled like vintage record sleeve / book cover */}
+                <div className="bg-paper-dark p-6 border-2 border-ink shadow-retro flex flex-col h-full hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300 relative overflow-hidden">
+                  {/* Decorative HI-FI Sticker */}
+                  <div className="absolute top-2 right-2 bg-accent-gold text-ink text-[7px] font-mono font-bold px-2 py-0.5 border border-ink rotate-6 shadow-sm z-20 select-none">
+                    STEREO // HI-FI
                   </div>
-                </div>
 
-                <div className="p-6">
-                  <span className="text-accent text-xs font-bold tracking-wider uppercase mb-2 block">
-                    {project.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-secondary text-xs text-gray-300 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Spine card backing effect */}
+                  <div className="absolute top-0 bottom-0 left-0 w-2.5 bg-accent-deep border-r-2 border-ink"></div>
+
+                  {/* Image Container with thick border */}
+                  <div className="aspect-4/3 w-full overflow-hidden bg-paper border-2 border-ink relative ml-1 sm:ml-2">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover sepia-[0.25] contrast-[1.05] brightness-[0.98] group-hover:sepia-[0.05] group-hover:scale-[1.02] transition-all duration-700 ease-out"
+                    />
+                  </div>
+
+                  {/* Caption & Metadata in small caps */}
+                  <div className="mt-6 flex flex-col justify-between grow ml-1 sm:ml-2">
+                    <div>
+                      <div className="flex justify-between items-baseline mb-3 border-b border-ink/10 pb-2">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-accent-green">
+                          [{project.category}]
+                        </span>
+
+                        <div className="flex gap-4">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-ink hover:text-accent-deep text-[10px] uppercase font-mono font-bold tracking-wider flex items-center gap-1 transition-colors border-b border-transparent hover:border-accent-deep"
+                          >
+                            Live
+                            <ExternalLink size={9} />
+                          </a>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-ink hover:text-accent-deep text-[10px] uppercase font-mono font-bold tracking-wider flex items-center gap-1 transition-colors border-b border-transparent hover:border-accent-deep"
+                          >
+                            Code
+                            <Github size={9} />
+                          </a>
+                        </div>
+                      </div>
+
+                      <h3 className="text-2xl font-bold font-display text-ink uppercase tracking-tight mb-3">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-ink-muted text-sm font-serif leading-relaxed mb-6">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Tags List */}
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t-2 border-ink border-dashed mt-auto">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-[9px] font-bold border border-ink/30 px-2.5 py-0.5 text-ink bg-paper shadow-[1px_1px_0px_0px_rgba(44,39,36,1)] select-none"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Portfolio;
-
